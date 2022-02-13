@@ -22,3 +22,9 @@ Take a TES to TES BED file and get the TSS coordinates, sorts the output BED fil
 ```
 awk '{if($6=="+"){OFS="\t";print($1,$3-1,$3,$4,$5,$6)} else if($6=="-"){OFS="\t";print($1,$2,$2+1,$4,$5,$6)}}' TSS_TES.bed | sort -k 1,1 -k 2,2n > TSS.bed
 ```
+
+### sum a column
+Print sum of specified column (here it would be column 4)
+```
+awk '{FS="\t"}{sum+=$4;} END{print sum;}' file.txt
+```

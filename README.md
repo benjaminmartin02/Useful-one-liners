@@ -11,6 +11,19 @@ Use *!seen* to remove lines with duplicates in specified column (in example, col
 awk '!seen[$3]++' filename
 ```
 
+### grep on a column
+
+pull out lines matching "string" in a specific column (like grep on a column):
+```
+awk '$6 ~ /string/' 
+```
+
+### pull out lines matching input list
+eg. gene ids... this would pull out rows with gene IDs in 1st column matching gene_ids.txt
+```
+awk 'NR==FNR{a[$1];next}{if ($1 in a) {print $0}}' gene_ids.txt inputfile.txt
+```
+
 ### get TSS from TSS-TES BED
 Take a TSS to TES BED file and get the TSS coordinates, sorts the output BED file by position
 ```

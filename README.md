@@ -22,3 +22,23 @@ Take a TES to TES BED file and get the TSS coordinates, sorts the output BED fil
 ```
 awk '{if($6=="+"){OFS="\t";print($1,$3-1,$3,$4,$5,$6)} else if($6=="-"){OFS="\t";print($1,$2,$2+1,$4,$5,$6)}}' TSS_TES.bed | sort -k 1,1 -k 2,2n > TSS.bed
 ```
+
+
+
+
+## R
+
+### get file paths to read in a loop
+
+Give path to directory (here: __Liver_cancer/*/*/*__) and then pattern in file name to match (here: __"htseq.counts.gz"__)
+```
+matFiles <- dir(Sys.glob(file.path("Liver_cancer/*/*/*")), pattern = "htseq.counts.gz", full.names = T)
+```
+Then can derive simplified names to match each file using gsub and basename functions
+```
+matNames <- gsub(".htseq.counts.gz","",basename(matFiles),fixed=T)
+```
+Then can read samples in with a loop
+```
+
+```

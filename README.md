@@ -12,6 +12,12 @@ Use *!seen* to remove lines with duplicates in specified column (in example, col
 awk '!seen[$3]++' filename
 ```
 
+### sum values in a column
+Eg. Sum the values in 4th column of tab-delimited file
+```
+awk -F'\t' '{sum+=$4;} END{print sum;}' file.txt
+```
+
 
 ### grep on a column
 

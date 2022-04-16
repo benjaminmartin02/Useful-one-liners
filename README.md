@@ -32,6 +32,11 @@ eg. gene ids... this would pull out rows with gene IDs in 1st column matching **
 awk 'NR==FNR{a[$1];next}{if ($1 in a) {print $0}}' gene_ids.txt inputfile.txt
 ```
 
+### absolute value
+A simple function to return the absolute value of a number in the specified column (column 1 in the example below). Note, you could also do sqrt of the square.
+```
+awk 'function abs(v) {v += 0; return v < 0 ? -v : v} {print abs($1) }'
+```
 
 
 ### get TSS from TSS-TES BED
@@ -53,9 +58,9 @@ awk '{if($6=="+"){OFS="\t";print($1,$3-1,$3,$4,$5,$6)} else if($6=="-"){OFS="\t"
 
 ### get file paths to read in a loop
 
-Give path to directory (here: __Liver_cancer/*/*/*__) and then pattern in file name to match (here: __"htseq.counts.gz"__)
+Give path to directory (here: __your_directory/*/*/*__) and then pattern in file name to match (here: __"htseq.counts.gz"__)
 ```
-matFiles <- dir(Sys.glob(file.path("Liver_cancer/*/*/*")), pattern = "htseq.counts.gz", full.names = T)
+matFiles <- dir(Sys.glob(file.path("your_directory/*/*/*")), pattern = "htseq.counts.gz", full.names = T)
 ```
 Then can derive simplified names to match each file using gsub and basename functions
 ```

@@ -32,6 +32,12 @@ eg. gene ids... this would pull out rows with gene IDs in 1st column matching **
 awk 'NR==FNR{a[$1];next}{if ($1 in a) {print $0}}' gene_ids.txt inputfile.txt
 ```
 
+### pull out lines not matching input list
+eg. gene ids... this would pull out rows with gene IDs in 1st column matching **gene_ids.txt**
+```
+awk 'NR==FNR{a[$1];next}{if (($1 in a)==0) {print $0}}' gene_ids.txt inputfile.txt
+```
+
 ### absolute value
 A simple function to return the absolute value of a number in the specified column (column 1 in the example below). Note, you could also do sqrt of the square.
 ```

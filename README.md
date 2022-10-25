@@ -57,7 +57,13 @@ Take a TES to TES BED file and get the TSS coordinates, sorts the output BED fil
 awk '{if($6=="+"){OFS="\t";print($1,$3-1,$3,$4,$5,$6)} else if($6=="-"){OFS="\t";print($1,$2,$2+1,$4,$5,$6)}}' TSS_TES.bed | sort -k 1,1 -k 2,2n > TSS.bed
 ```
 
+## LINUX
 
+### get max memory/cpu usage of a command
+This will work in ubuntu/linux environments, "Maximum resident set size (kbytes)" should be peak memory usage. Command grabbed from here: https://stackoverflow.com/questions/774556/peak-memory-usage-of-a-linux-unix-process
+```
+/usr/bin/time -v {command}
+```
 
 
 ## R

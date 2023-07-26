@@ -14,8 +14,9 @@ awk '!seen[$3]++' filename
 
 ### sum values in a column
 Eg. Sum the values in 4th column of tab-delimited file
+- note that ```OFMT="%f";``` gives the output as a normal number (normally awk outputs big numbers in scientific notation)
 ```
-awk -F'\t' '{sum+=$4;} END{print sum;}' file.txt
+awk -F'\t' '{sum+=$4;} END{OFMT="%f"; print sum;}' file.txt
 ```
 
 

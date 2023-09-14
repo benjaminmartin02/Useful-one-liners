@@ -59,6 +59,29 @@ Take a TES to TES BED file and get the TSS coordinates, sorts the output BED fil
 awk '{if($6=="+"){OFS="\t";print($1,$3-1,$3,$4,$5,$6)} else if($6=="-"){OFS="\t";print($1,$2,$2+1,$4,$5,$6)}}' TSS_TES.bed | sort -k 1,1 -k 2,2n > TSS.bed
 ```
 
+## SED
+
+### print specified lines of a file
+Print specified lines of a file - the code below will print from lines 3-7:
+```
+sed -n "3,7p" yourfile.txt
+```
+
+### global find and replace
+find and replace text strings
+```
+sed 's/chr/Chr/g' yourfile.txt
+```
+- will replace every instance of "chr" with "Chr"
+
+Can also use special characters
+```
+sed 's/ /\t/g' yourfile.txt
+```
+- will replace space with tab
+
+
+
 ## LINUX
 
 ### get max memory/cpu usage of a command

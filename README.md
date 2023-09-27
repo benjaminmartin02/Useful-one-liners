@@ -1,6 +1,5 @@
 # Useful-one-liners
-Miscellaneous one-liners. These are simple solutions I would repeatedly google, so putting them here for future reference. 
-
+Miscellaneous one-liners. These are simple solutions I would repeatedly google, so putting them here for future reference. Many of these have been in my code so long I don't remember where they came from (except for "pull out lines matching input list" which is courtesy of Julia Rogers). I may have come up with some of these, but more likely they are pulled from the interweb.
 
 
 ## AWK

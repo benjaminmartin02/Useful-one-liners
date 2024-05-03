@@ -28,7 +28,8 @@ awk '$6 ~ /string/'
 ```
 
 ### pull out lines matching input list
-Thanks to Julia Rogers for this one
+Thanks to Julia Rogers for this one.
+
 eg. gene ids... this would pull out rows with gene IDs in 1st column matching **gene_ids.txt**
 ```
 awk 'NR==FNR{a[$1];next}{if ($1 in a) {print $0}}' gene_ids.txt inputfile.txt
